@@ -1,0 +1,9 @@
+<div id="latest-data">
+    <table class="table table-striped latest-data">
+        <tbody>
+        {{#each model as |sample|}}
+            {{sample-comp content=sample.latestSample sampleName=sample.name}}
+        {{/each}}
+        </tbody>
+    </table>
+</div>
