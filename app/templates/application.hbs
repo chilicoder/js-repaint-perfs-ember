@@ -1,8 +1,8 @@
-<div id="latest-data">
+<div>
     <table class="table table-striped latest-data">
         <tbody>
-        {{#each model as |sample|}}
-            {{sample-comp content=sample.latestSample sampleName=sample.name}}
+        {{#each model.databaseArray key='name' as |db|}}
+            {{dbmon-database db=db}}
         {{/each}}
         </tbody>
     </table>
