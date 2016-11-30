@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'js-repaint-perfs-ember-2-9-1',
+    modulePrefix: 'js-repaint-perfs-ember',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
