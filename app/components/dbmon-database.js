@@ -4,42 +4,47 @@ export default Ember.Component.extend({
   tagName: 'tr',
 
   queries: function() {
-    var samples = this.get('attrs.db.value.samples');
-    return samples[samples.length - 1].queries;
-  }.property('attrs.db'),
+    // var samples = this.get('attrs.db.value.samples');
+    // return samples[samples.length - 1].queries;
+    return this.get('db.lastSample.queries');
+  }.property('db.lastSample'),
+
 
   topFiveQueries: function() {
-    var queries = this.get('queries');
-    var topFiveQueries = queries.slice(0, 5);
-
-    while (topFiveQueries.length < 5) {
-      topFiveQueries.push({ query: "" });
-    }
-
-    return topFiveQueries.map(function(query, index) {
-      return {
-        key: index+'',
-        query: query.query,
-        elapsed: query.elapsed ? formatElapsed(query.elapsed) : '',
-        className: elapsedClass(query.elapsed)
-      };
-    });
-  }.property('queries'),
+    return this.get('db.lastSample.topFiveQueries');
+    // var queries = this.get('queries');
+    // var topFiveQueries = queries.slice(0, 5);
+    //
+    // while (topFiveQueries.length < 5) {
+    //   topFiveQueries.push({ query: "" });
+    // }
+    //
+    // return topFiveQueries.map(function(query, index) {
+    //   return {
+    //     key: index+'',
+    //     query: query.query,
+    //     elapsed: query.elapsed ? formatElapsed(query.elapsed) : '',
+    //     className: elapsedClass(query.elapsed)
+    //   };
+    // });
+  }.property('db.lastSample'),
 
   countClassName: function() {
-    var queries = this.get('queries');
-    var countClassName = "label";
+    // var queries = this.get('queries');
+    // var countClassName = "label";
+    //
+    // if (queries.length >= 20) {
+    //   countClassName += " label-important";
+    // } else if (queries.length >= 10) {
+    //   countClassName += " label-warning";
+    // } else {
+    //   countClassName += " label-success";
+    // }
 
-    if (queries.length >= 20) {
-      countClassName += " label-important";
-    } else if (queries.length >= 10) {
-      countClassName += " label-warning";
-    } else {
-      countClassName += " label-success";
-    }
+    // return countClassName;
+    return this.get('db.lastSample.countClassName');
 
-    return countClassName;
-  }.property('queries'),
+  }.property('db.lastSample'),
 });
 
 function elapsedClass(elapsed) {
