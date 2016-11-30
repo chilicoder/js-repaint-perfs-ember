@@ -1,7 +1,7 @@
 {
-  "name": "js-repaint-perfs-ember-2-9-1",
+  "name": "js-repaint-perfs-ember",
   "version": "0.0.0",
-  "description": "Small description for js-repaint-perfs-ember-2-9-1 goes here",
+  "description": "Small description for js-repaint-perfs-ember goes here",
   "private": true,
   "directories": {
     "doc": "doc",

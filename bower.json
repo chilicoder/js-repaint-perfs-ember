@@ -1,5 +1,5 @@
 {
-  "name": "js-repaint-perfs-ember-2-9-1",
+  "name": "js-repaint-perfs-ember",
   "dependencies": {
     "ember": "v2.10.0",
     "ember-cli-shims": "0.1.3"

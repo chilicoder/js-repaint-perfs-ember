@@ -1,4 +1,4 @@
-import getData from 'js-repaint-perfs-ember-2-9-1/utils/get-data';
+import getData from 'js-repaint-perfs-ember/utils/get-data';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | get data');

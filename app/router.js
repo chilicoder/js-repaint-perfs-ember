@@ -6,10 +6,6 @@ const Router = Ember.Router.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function () {
-  this.route('database', {
-    path: "/dbs/:name"
-  });
-});
+Router.map(function () {});
 
 export default Router;
