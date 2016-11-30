@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'js-repaint-perfs-ember',
     environment: environment,
-    rootURL: '/',
+    rootURL: '/ember/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
