@@ -1,22 +1,23 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 import getData from '../utils/get-data';
-
-export default Ember.Route.extend({
-  model: function () {
+import { bind }  from '@ember/runloop';
+import { set }  from '@ember/object';
+export default class ApplicationRoute extends Route {
+  model() {
     return {
-      databases: []
+      databaseArray: []
     };
-  },
-
-  afterModel: function () {
-    this.loadSamples();
-  },
-
-
-  loadSamples: function () {
-    var model = this.modelFor('application');
-    Ember.set(model, 'databaseArray', getData());
-    Monitoring.renderRate.ping(); // jshint ignore:line
-    requestAnimationFrame(Ember.run.bind(this, this.loadSamples));
   }
-});
+
+  afterModel() {
+    super.afterModel(...arguments);
+    this.loadSamples();
+  }
+
+  loadSamples() {
+    const model = this.modelFor('application');
+    set(model, 'databaseArray', getData());
+    window.Monitoring && window.Monitoring.renderRate.ping();
+    requestAnimationFrame(bind(this, this.loadSamples));
+  }
+}
